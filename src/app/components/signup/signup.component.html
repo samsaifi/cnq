@@ -1,0 +1,65 @@
+<!-- This is an example component -->
+<div class="font-sans bg-gray-200">
+    <div class="mt-1 rounded shadow-xl relative min-h-screen flex flex-col sm:justify-center items-center   ">
+        <div class="relative sm:max-w-sm w-full">
+            <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+            <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+            <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+                <label for="" class="block mt-3 text-sm text-gray-700 text-center font-semibold">
+                    Signup
+                </label>
+                <form #registerForm="ngForm" class="mt-10">
+
+                    <div>
+                        <input type="email" placeholder="email" required pattern="^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$"
+                            ngModel #email="ngModel" name="email"
+                            class="mt-1  px-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
+                        <h5 [hidden]="email.valid || email.untouched" class="text-red-500 bg-red-100 mt-2 px-2 ">Invalid
+                            Email
+                        </h5>
+                    </div>
+
+                    <div class="mt-7">
+                        <input type="password" placeholder="password" required min="6" ngModel #password="ngModel"
+                            name="password"
+                            class="mt-1 px-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
+                        <h5 [hidden]="password.valid || password.untouched" class="text-red-500 bg-red-100 mt-2 px-2 ">
+                            Invalid
+                            Password
+                        </h5>
+                    </div>
+
+                    <div class="mt-7 flex">
+                        <label for="remember_me" class="inline-flex items-center w-full cursor-pointer">
+                            <input id="remember_me" type="checkbox"
+                                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                name="remember">
+                            <span class="ml-2 text-sm text-gray-600">
+                                Recuerdame
+                            </span>
+                        </label>
+
+                        <div class="w-full text-right">
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="#">
+                                Forget Password
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-7">
+                        <button [disabled]="registerForm.invalid" type="button" (click)="register(registerForm)"
+                            class="bg-blue-500 mb-3 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                            Register
+                        </button>
+                        <button type="button" (click)="reset(registerForm)"
+                            class="bg-red-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                            reset
+                        </button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
