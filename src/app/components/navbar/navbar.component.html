@@ -1,34 +1,35 @@
 <div class="min-w-screen   bg-gray-200 px-5 pb-5 pt-2">
     <div class="py-3 px-5 bg-white rounded shadow-xl">
-        <div class="-mx-1 flex justify-items-stretch">
-            <ul class="flex w-full flex-wrap items-center h-10">
+        <div class="-mx-1 flex  justify-between">
+            <ul class="flex w-auto   flex-wrap items-center h-10">
                 <li class="block relative">
-                    <a routerLink="/login" routerLinkActive="bg-indigo-500 text-white"
+                    <a routerLink="/" routerLinkActive="bg-indigo-500 text-white"
                         class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
                         <span class="mr-3 text-xl"> <i class="mdi mdi-gauge"></i> </span>
                         <span>CNQ</span>
                         <span class="ml-2"> <i class="mdi mdi-chevron-down"></i> </span>
                     </a>
                 </li>
+
+            </ul>
+
+            <ul class="flex w-fit  text-right justify-end  flex-wrap items-end h-10  ">
                 <li class="block relative">
-                    <a href="#"
+                    <a routerLink="/about" routerLinkActive="bg-indigo-500 text-white"
                         class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
                         <span class="mr-3 text-xl"> <i class="mdi mdi-widgets-outline"></i> </span>
-                        <span>Widgets</span>
+                        <span>About</span>
                     </a>
                 </li>
                 <li class="block relative">
-                    <a href="#"
+                    <a routerLink="/create-bin" routerLinkActive="bg-indigo-500 text-white"
                         class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
                         <span class="mr-3 text-xl"> <i class="mdi mdi-layers-outline"></i> </span>
-                        <span>UI Elements</span>
+                        <span>Create Snippet</span>
                         <span class="ml-2"> <i class="mdi mdi-chevron-down"></i> </span>
                     </a>
                 </li>
-            </ul>
-
-            <ul class="flex w-1/4 text-right  justify-self-end   flex-wrap items-end h-10  ">
-
+                @if(!auth.isAuthenticated()){
                 <li class="block relative">
                     <a routerLink="/login" routerLinkActive="bg-indigo-500 text-white"
                         class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
@@ -47,6 +48,19 @@
                     </a>
 
                 </li>
+                } @else {
+                <li class="block relative">
+                    <a (click)="auth.logoutUser()"
+                        class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
+                        <span class="mr-3 text-xl"> <i class="mdi mdi-apple-safari"></i> </span>
+                        <span>Logout</span>
+                        <span class="ml-2"> <i class="mdi mdi-chevron-down"></i> </span>
+                    </a>
+
+                </li>
+                }
+
+
             </ul>
         </div>
     </div>

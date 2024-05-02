@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 
@@ -8,4 +9,6 @@ import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+    constructor(public auth: AuthService) {}
+}

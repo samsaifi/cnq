@@ -6,6 +6,7 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     selector: 'app-login',
@@ -15,6 +16,7 @@ import {
     styleUrl: './login.component.css',
 })
 export class LoginComponent {
+    constructor(private authService: AuthService) {}
     email = new FormControl('', [Validators.required, Validators.email]);
     password = new FormControl('', [
         Validators.required,
@@ -25,7 +27,13 @@ export class LoginComponent {
         password: this.password,
     });
     login() {
-        console.log(this.loginForm.value);
+        let email = this.loginForm.value.email;
+        let password = this.loginForm.value.password;
+        console.log(email, password);
+
+        this.authService.loginUser(email, password);
     }
-    reset(loginForm: any) {}
+    reset() {
+        this.loginForm.reset();
+    }
 }
