@@ -1,0 +1,43 @@
+<!-- This is an example component -->
+<div class="font-sans bg-gray-200">
+    <div class="mt-1 rounded shadow-xl relative min-h-screen flex flex-col sm:justify-center items-center   ">
+        <div class="relative sm:max-w-sm w-full">
+            <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+            <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+            <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+                <label for="" class="block mt-3 text-sm text-gray-700 text-center font-semibold">
+                    Edit Code Snippets
+                </label>
+                <form [formGroup]="codeBin" class="mt-10">
+
+                    <div>
+                        <input type="title" placeholder="title" name="title" [formControl]="title"
+                            [value]="codeBin.value.title"
+                            class="mt-1 p-3 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
+                        <input type="hidden" placeholder="title" name="id" [formControl]="id"
+                            [value]="codeBin.value.id">
+                        <h5 class="text-red-500 bg-red-100 mt-2 px-2 " [hidden]="title.valid || title.untouched">Invalid
+                            Title
+                        </h5>
+                    </div>
+
+                    <div class="mt-7">
+                        <textarea rows="6" cols="4" type="snippet" name="snippet" placeholder="add code here"
+                            [formControl]="snippet"
+                            class="mt-1 p-3   block w-full border-none bg-gray-100   rounded-xl shadow-lg hover:bg-blue-100 "
+                            [value]="codeBin.value.snippet"> {{codeBin.value.snippet}} </textarea>
+                        <h5 class="text-red-500 bg-red-100 mt-2 px-2 " [hidden]=" snippet.valid || snippet.untouched">
+                            Snippet
+                        </h5>
+                    </div>
+                    <div class="mt-7">
+                        <button type="button" (click)="updateCode()"
+                            class="bg-green-500 mb-3 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                            Update
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 export type Snippet = {
-    snippet: {
-        title: string;
-        snippet: string;
-    };
+    title: string;
+    snippet: string;
+    id?: string;
+    by?: string;
 };
